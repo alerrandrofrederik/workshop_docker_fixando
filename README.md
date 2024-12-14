@@ -25,5 +25,14 @@ poetry env use 3.12.1
 poetry shell
 ```
 
+### Instalar o streamlit
+```bash
+poetry add streamlit
+```
+
+### Executar o streamlit maquina local (teste)
+```bash
+poetry run streamlit run app.py
+```
 
 
