@@ -61,3 +61,16 @@ netstat -ano | findstr :8501
 ```bash
 docker run -p 8501:8501 --name meu_primeiro_container minha_primeira_imagem
 ```
+
+## Dica de uso desse projeto
+```bash
+git clone git@github.com:alerrandrofrederik/workshop_docker_fixando.git
+
+cd workshop_docker_fixando
+
+--builda a imagem
+docker build -t minha_primeira_imagem . 
+
+--executa o conteiner
+docker run -p 8501:8501 --name meu_primeiro_container minha_primeira_imagem
+```
