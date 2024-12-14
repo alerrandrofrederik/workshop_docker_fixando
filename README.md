@@ -35,4 +35,29 @@ poetry add streamlit
 poetry run streamlit run app.py
 ```
 
+## Docker
+### nessa etapa vamos criar uma imagem no arquivo docker file
+```bash
+FROM python:3.12        --imagem python
+RUN pip install poetry  --instalar poetry
+COPY . /src              --copiar tudo para src(como estivesse zipando codigo e docerfile)
+WORKDIR /src             --trabalhar na pasta src   
+RUN poetry install       --instalar o poetry
+EXPOSE 8501             --expor a porta 8501
+ENTRYPOINT ["poetry","run", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"] --executar o streamlit
+```
 
+### Criar a imagem do docker
+```bash
+docker build -t minha_primeira_imagem .
+```
+
+### Verificar porta 8501 está sendo utilizada
+```bash
+netstat -ano | findstr :8501
+```
+
+### Executar a container do docker
+```bash
+docker run -p 8501:8501 --name meu_primeiro_container minha_primeira_imagem
+```
